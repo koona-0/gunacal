@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+	version="3.1">
+	<display-name>gunacal</display-name>
+
+	<!-- 추가된 코드 -->
+
+	<!-- 언어셋 : utf-8 -->
+	<filter>
+		<filter-name>encoding</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter
+		</filter-class>
+		<init-param>	<!-- 기본 언어셋 -->
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+		<init-param>	<!-- 기본 언어셋을 작동시킴 -->
+			<param-name>forceEncoding</param-name>
+			<param-value>true</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>	<!-- 모든 Controller에 적용 -->
+		<filter-name>encoding</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<!-- @Controller 이용하여 Controller를 사용할 수 있도록 설정 -->
+	<servlet>
+		<servlet-name>dispatcher</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet
+		</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>
+				
+				/WEB-INF/webpage.xml 
+				<!-- 
+				/WEB-INF/db_config.xml 
+				 -->
+				
+			</param-value>	<!-- Controller를 사용할 수 있는 옵션 (이부분은 직접 세팅) -->
+		</init-param>
+		<load-on-startup>1</load-on-startup>	<!-- webpage.xml을 첫번째로 읽어들임 -->
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>dispatcher</servlet-name>
+		<url-pattern>/</url-pattern>	<!-- 여기 /* 쓰면 오류남 -->
+	</servlet-mapping>
+	<!-- /추가된 코드 -->
+
+</web-app>

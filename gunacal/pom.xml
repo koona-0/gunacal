@@ -1,0 +1,134 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>gunacal</groupId>
+	<artifactId>gunacal</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
+
+	<!-- 추가된 코드 -->
+	<build>	<!-- 배포 파일에 맞춰 해당 압축파일을 생성하는 라이브러리 -->
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>3.3.2</version>
+			</plugin>
+		</plugins>
+	</build>
+
+	<dependencies>	<!-- 프로젝트에 필요한 각종 라이브러리 설치 목록 -->
+
+		<dependency>	<!-- mysql 라이브러리 -->
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>8.0.30</version>
+		</dependency>
+
+		<dependency>	<!-- Java를 web으로 사용할 수 있는 servlet 라이브러리 -->
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.1.0</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>	<!-- was 버전 셋팅 (tomcat 라이브러리) -->
+			<groupId>org.apache.tomcat</groupId>
+			<artifactId>tomcat-catalina</artifactId>
+			<version>8.5.61</version>
+		</dependency>
+
+		<dependency>	<!-- DBCP (Database Connection) : Spring, Spring-boot -->
+			<groupId>commons-dbcp</groupId>
+			<artifactId>commons-dbcp</artifactId>
+			<version>1.4</version>
+		</dependency>
+
+		<dependency>	<!-- Spring MVC -->
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>5.3.39</version>
+		</dependency>
+
+		<dependency>	<!-- Spring + mysql (Model, Controller, View) : mysql 서버 접속 환경설정 라이브러리 -->
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>5.3.39</version>
+		</dependency>
+
+		<dependency>	<!-- JSP + JSTL 언어를 사용하기 위한 라이브러리 -->
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
+
+		<dependency>	<!-- lombok : DTO, VO (setter, getter) -->
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.36</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>	<!-- 파일 업로드 라이브러리 -->
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>1.5</version>
+		</dependency>
+
+		<dependency>	<!-- mybatis -->
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis</artifactId>
+			<version>3.5.6</version>
+		</dependency>
+
+		<dependency>	<!-- mybatis spring -->
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis-spring</artifactId>
+			<version>2.0.6</version>
+		</dependency>
+
+		<dependency>	<!-- slf4j : 로그 출력 라이브러리 (jdk 및 라이브러리 호출 정보) -->
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>2.0.17</version>
+		</dependency>
+
+		<dependency>	<!-- java 또는 Controller, Model을 구현시 결과처리 정보를 기록 -->
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>2.0.17</version>
+			<!-- <type>pom</type> <scope>test</scope> -->
+			<scope>runtime</scope>	<!-- 실행시간동안 작동되게 함 -->
+		</dependency>
+
+		<dependency>	<!-- 서버 오류 및 소켓통신, 포트통신일 경우 기록 -->
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+			<version>2.0.17</version>
+			<scope>runtime</scope>	<!-- 실행시간동안 작동되게 함 -->
+		</dependency>
+
+		<dependency>	<!-- 로그를 콘솔에 출력 -->
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.17</version>
+			<scope>runtime</scope>	<!-- 실행시간동안 작동되게 함 -->
+		</dependency>
+
+		<dependency>	<!-- inject : Spring, Sprig-boot Datasbase 관련 id 의존성 주입 (@Inject 사용가능) -->
+			<groupId>javax.inject</groupId>
+			<artifactId>javax.inject</artifactId>
+			<version>1</version>
+		</dependency>
+
+
+	</dependencies>
+
+	<properties>	<!-- jdk 셋팅 버전 -->
+		<maven.compiler.source>11</maven.compiler.source>
+		<maven.compiler.target>11</maven.compiler.target>
+	</properties>
+	<!-- /추가된 코드 -->
+
+</project>

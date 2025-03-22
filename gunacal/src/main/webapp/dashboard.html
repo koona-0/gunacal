@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>대시보드 - 구나캘린더 (Guna Calendar)</title>
+  <link rel="stylesheet" href="./css/styles.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap">
+</head>
+<body>
+  <div class="app-container">
+    <header class="header">
+      <div class="container header-container">
+        <div class="logo">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="logo-icon">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="16" y1="2" x2="16" y2="6"></line>
+            <line x1="8" y1="2" x2="8" y2="6"></line>
+            <line x1="3" y1="10" x2="21" y2="10"></line>
+          </svg>
+          <span class="logo-text">Guna Calendar</span>
+        </div>
+        <nav class="nav">
+          <button class="btn btn-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+          </button>
+          <div class="dropdown">
+            <button class="avatar-button" id="user-menu-button">
+              <div class="avatar">
+                <img src="https://via.placeholder.com/32" alt="사용자" class="avatar-image">
+              </div>
+            </button>
+            <div class="dropdown-menu" id="user-dropdown">
+              <div class="dropdown-header">내 계정</div>
+              <div class="dropdown-divider"></div>
+              <a href="#" class="dropdown-item">프로필</a>
+              <a href="#" class="dropdown-item">설정</a>
+              <div class="dropdown-divider"></div>
+              <a href="index.html" class="dropdown-item">로그아웃</a>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+    
+    <div class="dashboard-container">
+      <aside class="sidebar">
+        <div class="sidebar-content">
+          <button class="sidebar-button sidebar-button-active">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+            내 캘린더
+          </button>
+          <button class="sidebar-button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+            가족 캘린더
+          </button>
+          <button class="sidebar-button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+            업무 캘린더
+          </button>
+          <button class="sidebar-button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="5" x2="12" y2="19"></line>
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+            </svg>
+            새 캘린더 추가
+          </button>
+        </div>
+      </aside>
+      
+      <main class="calendar-main">
+        <div class="calendar-header">
+          <div class="calendar-nav">
+            <button class="btn btn-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="15 18 9 12 15 6"></polyline>
+              </svg>
+            </button>
+            <h1 class="calendar-title" id="current-month-year"></h1>
+            <button class="btn btn-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </button>
+          </div>
+          <div class="calendar-actions">
+            <button class="btn btn-primary" id="add-event-btn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="btn-icon-left">
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+              </svg>
+              일정 추가
+            </button>
+          </div>
+        </div>
+        
+        <div class="calendar-grid" id="calendar-grid">
+          <div class="calendar-day-names">
+            <div class="day-name">일</div>
+            <div class="day-name">월</div>
+            <div class="day-name">화</div>
+            <div class="day-name">수</div>
+            <div class="day-name">목</div>
+            <div class="day-name">금</div>
+            <div class="day-name">토</div>
+          </div>
+          <div class="calendar-days" id="calendar-days">
+            <!-- Calendar days will be generated by JavaScript -->
+          </div>
+        </div>
+      </main>
+      
+      <aside class="events-sidebar">
+        <div class="events-sidebar-content">
+          <h2 class="events-sidebar-title">오늘의 일정</h2>
+          <div class="events-list" id="events-list">
+            <!-- Events will be generated by JavaScript -->
+          </div>
+        </div>
+      </aside>
+    </div>
+    
+    <div class="modal" id="add-event-modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title">새 일정 추가</h2>
+          <button class="modal-close" id="close-modal-btn">&times;</button>
+        </div>
+        <div class="modal-body">
+          <form id="add-event-form">
+            <div class="form-group">
+              <label for="event-title" class="form-label">제목</label>
+              <input id="event-title" type="text" class="form-input" required>
+            </div>
+            <div class="form-group">
+              <label for="event-date" class="form-label">날짜</label>
+              <input id="event-date" type="date" class="form-input" required>
+            </div>
+            <div class="form-group">
+              <label for="event-time" class="form-label">시간</label>
+              <input id="event-time" type="time" class="form-input" required>
+            </div>
+            <div class="form-group">
+              <label for="event-category" class="form-label">카테고리</label>
+              <select id="event-category" class="form-select">
+                <option value="업무">업무</option>
+                <option value="개인">개인</option>
+                <option value="가족">가족</option>
+                <option value="기타">기타</option>
+              </select>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-outline" id="cancel-event-btn">취소</button>
+              <button type="submit" class="btn btn-primary">저장</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    
+    <footer class="footer">
+      <div class="container footer-container">
+        <p class="copyright">
+          &copy; <span id="footer-year"></span> Guna Calendar. All rights reserved.
+        </p>
+      </div>
+    </footer>
+  </div>
+  
+  <script src="./js/main.js"></script>
+</body>
+</html>

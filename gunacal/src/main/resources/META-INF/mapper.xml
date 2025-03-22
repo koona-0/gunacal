@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="spring_learning.macbook_mapper">
+
+<!-- 
+<select id="macbook_select" resultType="macbookdto">
+select * from macbook_class order by midx desc
+</select>
+
+<delete id="macbook_delete">
+delete from macbook_class
+</delete>
+ -->
+
+</mapper>
